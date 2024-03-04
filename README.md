@@ -4,7 +4,7 @@ Helper functions for [Functioneer](https://github.com/Cemal-Berk/functioneer) - 
 
 ## Installation
 
-Run `npm install i functioneer-express` and import to your project.
+Run `npm install functioneer-express` and import to your project.
 
 ## Usage
 
@@ -29,17 +29,20 @@ Use the express handler for a path
 ## Exposed methods
 
 Both methods exposed by functioneer-express run a declared function based on request parameters:
+
+
 `getExpressHandler(functioneerInstance,dataSource,functionName?)`
+
 `getExpressMiddleware(functioneerInstance,dataSource,functionName?)`
 
 | arguement           | type        |                                                                                       |
-| ------------------- | ----------- | ------------------------------------------------------------------------------------- | -------- | -------- |
+| ------------------- | ----------- | ------------------------------------------------------------------------------------- |
 | functioneerInstance | Functioneer | An instance of Functioneer                                                            |
-| dataSource          | string      | Where to get the function arguements from ("BODY"                                     | "PARAMS" | "QUERY") |
+| dataSource          | string      | Where to get the function arguements from ("BODY" or "PARAMS" or "QUERY") |
 | functionName        | string?     | The function to be called. If null then select the function name from the data source |
 
 The behavior after running the exposed methods is different:
-| method | |
+| method | description |
 |--------|--------|
 | getExpressHandler | Runs function and retuns result to client as request body with 200 status |
 | getExpressMiddleware | Runs a function and stores the result in request.functionResult. When function execution execution of the middleware stack continues
